@@ -82,7 +82,7 @@ function App() {
     <div className="App">
         <header className="App-header" >
           {
-            !window.ethereum && window.ethereum.selectedAddress ?
+            window && window.ethereum && window.ethereum.selectedAddress === null?
               <div className="headerContent">
                   <h5>Connect your wallet</h5>
                   <Button className="btn" variant="contained" onClick={connectWallet}>
@@ -120,7 +120,7 @@ function App() {
                       window.ethereum && window.ethereum.selectedAddress !== null?
                       <div>
                           {
-                            supply < 9 ? 
+                            supply < 729 ? 
                             <div className='mintContainer'>
                                 <h2>Mint Tokens</h2>
                                 <h5>Enter amount # to mint, limit is 20 at a time!</h5>
