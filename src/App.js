@@ -82,7 +82,7 @@ function App() {
     <div className="App">
         <header className="App-header" >
           {
-            window && window.ethereum && window.ethereum.selectedAddress === null?
+            (window && window.ethereum && window.ethereum.selectedAddress === null) || (!window.ethereum)?
               <div className="headerContent">
                   <h5>Connect your wallet</h5>
                   <Button className="btn" variant="contained" onClick={connectWallet}>
