@@ -82,17 +82,17 @@ function App() {
     <div className="App">
         <header className="App-header" >
           {
-            (window && window.ethereum && window.ethereum.selectedAddress === null) || (!window.ethereum)?
-              <div className="headerContent">
-                  <h5>Connect your wallet</h5>
-                  <Button className="btn" variant="contained" onClick={connectWallet}>
-                    Connect
-                  </Button>
-              </div>
+            (window && typeof window.ethereum !== 'undefined' && window.ethereum.selectedAddress !== null)?
+                <div className="headerContent">
+                    <h6 style={{fontSize: '15px', marginLeft: '1rem'}}> <a href="https://nftrade.com/assets/avalanche/0x36adfabdbd6a2ff9f1f2504f6b9550def44a61c4" target="_blank" rel="noreferrer">Check collection at NFTrade</a></h6>
+                    <h5 style={{fontSize: '15px', paddingRight: '1rem'}}>{window.ethereum.selectedAddress}</h5>
+                </div>
             : 
-              <div className="headerContent">
-                  <h6 style={{fontSize: '15px', marginLeft: '1rem'}}> <a href="https://nftrade.com/assets/avalanche/0x36adfabdbd6a2ff9f1f2504f6b9550def44a61c4" target="_blank" rel="noreferrer">Check collection at NFTrade</a></h6>
-                  <h5 style={{fontSize: '15px', paddingRight: '1rem'}}>{window.ethereum.selectedAddress}</h5>
+               <div className="headerContent">
+                <h5>Connect your wallet</h5>
+                <Button className="btn" variant="contained" onClick={connectWallet}>
+                  Connect
+                </Button>
               </div>
           }
         </header>
@@ -101,8 +101,6 @@ function App() {
                 <h1 className="headerTitle" >Sandglass Iridium</h1>
                 <h4 style={{color: 'black', fontFamily: 'Monaco', fontSize: '20px'}}>729 generative art NFTs like you have never seen before <br></br>A journey through time and space</h4>
                 <h5 style={{color: 'black', fontFamily: 'Monaco', fontSize: '15px'}}>Check collection at <a href="https://nftrade.com/assets/avalanche/0x36adfabdbd6a2ff9f1f2504f6b9550def44a61c4" target="_blank" rel="noreferrer">NFTrade</a>. View <a href="https://snowtrace.io/address/0x36adfabdbd6a2ff9f1f2504f6b9550def44a61c4" target="_blank" rel="noreferrer">contract.</a></h5>
-               
-
                 <div>
                   <ImageGrid></ImageGrid>
                 </div>
